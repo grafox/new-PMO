@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+
+import { MDBBootstrapModules } from 'ng-mdb-pro';
+
+import { MDBSpinningPreloader } from 'ng-mdb-pro';
 
 
 import { AppComponent } from './app.component';
@@ -10,9 +14,11 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MDBBootstrapModules.forRoot()
   ],
-  providers: [],
+  schemas: [ NO_ERRORS_SCHEMA ],
+  providers: [MDBSpinningPreloader],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
