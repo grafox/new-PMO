@@ -1,0 +1,56 @@
+<main scrollable (scrollPosition)="scrollHandler($event)" style="padding:0em">
+    <app-banner></app-banner>
+    <loading-spinner  *ngIf="page.loading | async"></loading-spinner>
+  <div class="container">
+    <div class="row pt-5">
+      <div class="col text-center">
+        <!--Section: Blog v.1-->
+        <section class="section pb-3 text-center text-lg-right" *ngFor="let post of page.data | async">
+          <!--Section heading-->
+          <!--h1 class="section-heading h1 pt-4">{{post.type}}</h1-->
+          <!--Section description-->
+          <!-- <p class="section-description">{{post.data.type}}</p> -->
+          <!--Grid row-->
+          <div class="row">
+            <h4 class="mb-4">
+              <strong>{{post.title}}</strong>
+            </h4>
+            <!--Grid column-->
+            <div class="col-lg-5 col-xl-4 offset-xl-1 pb-3">
+              <!--Featured image-->
+              <div class="view overlay hm-white-slight waves-light" mdbRippleRadius>
+                <img class="animated fadeIn img-thumbnail" src="{{post.thumbnail}}">
+                <a [routerLink]="['/details/'+post.id]">
+                  <div class="mask"></div>
+                </a>
+              </div>
+            </div>
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-lg-7 col-xl-6">
+              <!--Excerpt-->
+              <a href="" class="green-text">
+                <h6 class="font-bold pb-1">
+                  <i class="fa fa-newspaper-o"></i>  {{post.type}}</h6>
+              </a>
+              <!-- <p>{{post.data.subContent}}</p> -->
+              <p [innerHTML]="post.subContent | keepHtml"></p>
+
+              <p>
+                <strong>{{post.by}} {{in}}  </strong>
+                {{post.creatAt | date:"short"}}</p>
+               <a [routerLink]="['/details/'+post.id]" class="btn btn-success mb-3 waves-light" mdbRippleRadius >{{readMore}}</a>
+            </div>
+            <!--Grid column-->
+          </div>
+
+        </section>
+        <!--Section: Blog v.1-->
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</main>
+<!-- /.Main -->
+<!-- /.Main -->
+

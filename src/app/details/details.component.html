@@ -1,0 +1,40 @@
+<!--Section: Blog v.4-->
+<section class="section section-blog-fw pt-5 mt-4 pb-3">
+
+  <!--Grid row-->
+  <div class="row">
+    <div class="col-md-12">
+      <!--Featured image-->
+      <div class="card card-cascade wider reverse">
+        <div class="view overlay hm-white-slight">
+          <img src="{{(post | async)?.image}}" class="mx-auto d-block img-fluid">
+        </div>
+        <!--Post data-->
+        <div class="card-body text-center">
+          <h2 class="mx-auto d-block font-weight-bold">
+            <a>{{ (post| async)?.title }}</a>
+          </h2>
+          <p>
+            <a>{{ (post| async)?.by}} </a>{{(post | async)?.creatAt | date:'short'}}</p>
+          <div class="excerpt mt-5">
+            <h3 [innerHTML]="(post | async)?.content | keepHtml"></h3>
+            <!-- <h3 class="text-justify text-right">{{ (post | async)?.content }}</h3> -->
+          </div>
+        </div>
+        <!--Post data-->
+      </div>
+
+      <!--Excerpt-->
+    </div>
+  </div>
+  <!--Grid row-->
+
+  <hr class="mb-5 mt-4">
+
+  <!--Grid row-->
+
+
+  <hr class="mb-5 mt-4">
+
+</section>
+<!--Section: Blog v.4-->

@@ -1,0 +1,66 @@
+<div class="author-box">
+<div *ngIf="items?.length > 0;else noItems" style="text-align: right">
+  <div *ngFor="let item of items" class="list-group">
+    <li class="list-group-item list-group-item-action">
+      <!-- <strong>{{item.id}}</strong> -->
+      
+      <p3>{{item.title}}</p3>
+      <!-- <strong>{{item.content}}</strong> -->
+      <strong>{{item.by}}</strong>
+      <strong> ---></strong>
+      <p3>{{item.creatAt | date:"short"}}</p3>
+        <i (click)="editItem($event, item)" class="fa fa-pencil fa-2x"></i>
+        <i *ngIf="editState && itemToEdit.id == item.id" (click)="clearState()" class="fa fa-compress fa-2x"></i>
+
+      <div *ngIf="editState && itemToEdit.id == item.id">
+        <form (ngSubmit)="updateItem(item)" class="md-form " >
+
+          <div >
+            <input type="text" placeholder="Add Title" [(ngModel)]="item.title" mdbPopover=""  placement="bottom" 
+            popoverTitle="عنوان المقال" triggers="focus" id= "text1" name="title" class="form-control" rows="1">
+          </div>
+          <div>
+            <input type="text" placeholder="Add type" [(ngModel)]="item.type" mdbPopover=""  placement="bottom" 
+            popoverTitle="نوع المقال" triggers="focus" id= "text2" name="type" class="form-control" rows="1">
+          </div>
+          <div><img src="{{item.thumbnail}}" class="img-thumbnail"></div>
+          <div>
+            <fate-input name="content" mdbPopover=""  placement="bottom" 
+            popoverTitle="محتوى المقال" triggers="focus" [(ngModel)]="item.content"></fate-input>
+            <!-- <textarea type="text" placeholder="Add Content" [(ngModel)]="item.content" name="content" class="form-control md-textarea" style="height: 250px"></textarea> -->
+          </div>
+          <div>
+              <fate-input name="subContent" mdbPopover=""  placement="bottom" 
+              popoverTitle="نبذة من المقال" triggers="focus" [(ngModel)]="item.subContent"></fate-input>
+            <!-- <textarea type="text" placeholder="Add subContent" [(ngModel)]="item.subContent" name="subContent" class="form-control md-textarea" rows="4"></textarea> -->
+          </div>
+          <div>
+              <mdb-date-picker name="mydate" [placeholder]="'اختر التاريخ'" [(ngModel)]="item.creatAt"></mdb-date-picker>
+          </div>
+          <button type="submit" class="btn btn-orange waves-light">تعديل</button>
+          <button type="button" (click)="frame.show()" class="btn btn-danger waves-light" mdbRippleRadius>حذف</button>
+
+          <div mdbModal #frame="mdb-modal" class="modal fade bottom" id="frameModalBottom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+            <div class="modal-dialog modal-frame modal-bottom" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row px-4">
+                            <p class="pt-1 pr-2">سيتم حذف هذا المقال</p>
+                            <button type="button" class="btn btn-primary waves-light" data-dismiss="modal" (click)="frame.hide()" mdbRippleRadius>تراجع</button>
+                            <button type="button" class="btn btn-danger waves-light" mdbRippleRadius (click)="deleteItem($event, item)">حذف</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                      
+        </form>
+      </div>
+    </li>
+  </div>
+</div>
+</div>
+<ng-template #noItems>
+  <br>
+  <h2 class="d-flex justify-content-center">لا يوجد مقالات لحد الان ... جاري التحميل</h2 >
+</ng-template>

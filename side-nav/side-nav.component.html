@@ -1,0 +1,103 @@
+<!-- SideNav slide-out button -->
+<!-- <a (click)="sidenav.toggle()" class="btn btn-primary p-3 button-collapse default-color-dark"><i class="fa fa-bars" ></i></a> -->
+<div class="float-left" >
+        <a (click)="sidenav.show()" class="button-collapse">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+<!--/. SideNav slide-out button -->
+
+<!-- Sidebar navigation -->
+<mdb-sidenav #sidenav class="fixed" class="default-color-dark" [fixed]="true">
+    <!-- Logo -->
+    <li>
+        <div class="logo-wrapper waves-light" style="padding-bottom:160px">
+            <!--a href="#"><img src=".\assets\images\logo-md.png" class="img-fluid flex-center" ></a-->
+        </div>
+    </li>
+    <!--/. Logo -->
+    <!--Social-->
+    <!-- <li>
+        <ul class="social">
+            <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"> </i></a></li>
+            <li><a class="icons-sm pin-ic"><i class="fa fa-pinterest"> </i></a></li>
+            <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"> </i></a></li>
+            <li><a class="icons-sm tw-ic"><i class="fa fa-twitter"> </i></a></li>
+        </ul>
+    </li>
+    </Social-->
+    <!--Search Form-->
+    <!--li>
+        <form class="search-form" role="search">
+            <div class="form-group waves-light" mdbRippleRadius>
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+        </form>
+    </li--> 
+    <!--/.Search Form-->
+    <!-- Side navigation links -->
+    <li>
+        <ul class="collapsible collapsible-accordion">
+            <mdb-squeezebox [multiple]="false" aria-multiselectable="false">
+
+                <!-- Collapsible link -->
+<!--                 <mdb-item>
+                    <mdb-item-head mdbRippleRadius><i class="fa fa-chevron-right"></i> Collapsible menu</mdb-item-head>
+                    <mdb-item-body>
+                        <ul>
+                            <li><a href="#" class="waves-effect" mdbRippleRadius>Link 1</a></li>
+                            <li><a href="#" class="waves-effect" mdbRippleRadius>Link 2</a></li>
+                        </ul>
+                    </mdb-item-body>
+                </mdb-item> -->
+
+                <!-- Simple link -->
+                <mdb-item class="no-collase text-md-right">
+                    <mdb-item-head mdbRippleRadius><p class="h5"><i class="fa fa-newspaper-o"></i>  البيانات  </p></mdb-item-head>
+                    <mdb-item-body></mdb-item-body>
+                </mdb-item>
+                <mdb-item class="no-collase text-md-right">
+                    <mdb-item-head mdbRippleRadius><p class="h5"><i class="fa fa-newspaper-o"></i>  كلمات وخطب</p></mdb-item-head>
+                    <mdb-item-body></mdb-item-body>
+                </mdb-item>
+                <mdb-item class="no-collase text-md-right">
+                    <mdb-item-head mdbRippleRadius><p class="h5"><i class="fa fa-newspaper-o"></i>  قرارات مجلس الوزراء</p></mdb-item-head>
+                    <mdb-item-body></mdb-item-body>
+                </mdb-item>
+                <mdb-item class="no-collase text-md-right">
+                    <mdb-item-head mdbRippleRadius><p class="h5"><i class="fa fa-newspaper-o"></i>  معرض الصور</p></mdb-item-head>
+                    <mdb-item-body></mdb-item-body>
+                </mdb-item>
+                <mdb-item class="no-collase text-md-right">
+                    <mdb-item-head mdbRippleRadius><p class="h5"><i class="fa fa-newspaper-o"></i>  البرنامج الحكومي</p></mdb-item-head>
+                    <mdb-item-body></mdb-item-body>
+                </mdb-item>
+                <mdb-item class="no-collase text-md-right h5-responsive">
+                    <mdb-item-head mdbRippleRadius><p class="h5"><i class="fa fa-eye"></i>  الدخول</p></mdb-item-head>
+                    <mdb-item-body></mdb-item-body>
+                </mdb-item>
+
+                <!-- Collapsible link -->
+<!--                 <mdb-item>
+                    <mdb-item-head mdbRippleRadius><i class="fa fa-eye"></i> Collapsible menu 2</mdb-item-head>
+                    <mdb-item-body>
+                        <ul>
+                            <li><a href="#" class="waves-effect" mdbRippleRadius>Link 1</a></li>
+                            <li><a href="#" class="waves-effect" mdbRippleRadius>Link 2</a></li>
+                        </ul>
+                    </mdb-item-body>
+                </mdb-item> -->
+
+                 <!-- Simple link -->
+<!--                  <mdb-item class="no-collase">
+                    <mdb-item-head mdbRippleRadius><i class="fa fa-diamond"></i> Simple link 2</mdb-item-head>
+                    <mdb-item-body></mdb-item-body>
+                </mdb-item> -->
+                
+            </mdb-squeezebox>
+        </ul>
+    </li>
+    <!--/. Side navigation links -->
+    <div class="sidenav-bg mask-strong"></div>
+</mdb-sidenav>
+<!--/. Sidebar navigation -->

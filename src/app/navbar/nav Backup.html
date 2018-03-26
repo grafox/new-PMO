@@ -1,0 +1,40 @@
+
+<!-- <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark bg-default ie-nav double-nav" [containerInside]="false"> -->
+<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark bg-default ie-nav navbar-toggleable-md scrolling-navbar double-nav" [containerInside]="false">
+    <logo>
+      <img src="..\..\assets\images\logo-sm.png" class="float-right">
+      <a class="logo navbar-brand" href="/">
+        <h3 class="h3-responsive">
+          <strong>{{PMO}}</strong>
+        </h3>
+      </a>
+    </logo>
+    <links>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active waves-light" mdbRippleRadius>
+          <!-- Search form -->
+          <form class="form-inline  waves-light" mdbRippleRadius>
+            <input class="form-control mr-sm-2" type="text" placeholder="{{searchPlaceholder}}">
+          </form>
+        </li>
+      </ul>
+      <ul class="navbar-nav nav-flex-icons">
+        <li class="nav-item waves-light" mdbRippleRadius>
+          <a class="nav-link" href="https://www.facebook.com/IraqPMMediaOffice">
+            <i class="fa fa-facebook"></i>
+          </a>
+        </li>
+        <li class="nav-item waves-light" mdbRippleRadius>
+          <a class="nav-link" href="https://www.youtube.com/user/pmoiraqichannel">
+            <i class="fa fa-youtube"></i>
+          </a>
+        </li>
+        <li class="nav-item waves-light" mdbRippleRadius>
+          <a class="nav-link" href="https://twitter.com/IraqiPMO">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </li>
+      </ul>
+    </links>
+  </mdb-navbar>
+  
