@@ -10,13 +10,15 @@ import { AdminComponent } from './admin/admin.component';
 import { ItemsComponent } from './items/items.component'
 import { GalleryComponent } from './gallery/gallery.component';
 
+//import {AuthGuard} from './auth.guard';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'addItem', component: AddItemComponent },
   { path: 'details/:id', component: DetailsComponent },
   { path: 'item', component: ItemsComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent},
   { path: 'gallery', component: GalleryComponent }
 ];
 

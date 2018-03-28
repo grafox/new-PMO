@@ -15,7 +15,7 @@ import { ItemService } from './services/item.service';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,7 +40,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AdminComponent } from './admin/admin.component';
 import { AddItemComponent } from './add-item/add-item.component';
 import { BannerComponent } from './banner/banner.component';
-import { GalleryComponent } from './gallery/gallery.component'
+import { GalleryComponent } from './gallery/gallery.component';
+
+import { AuthService } from './auth.service';
+import { AngularFireAuth } from 'angularfire2/auth';
+//import { AuthGuard } from './auth.guard';
+//import { FlashMessagesModule } from 'angular2-flash-messages';
+//import { FlashMessagesService } from 'angular2-flash-messages';
 
 @NgModule({
   declarations: [
@@ -69,13 +75,16 @@ import { GalleryComponent } from './gallery/gallery.component'
     MDBBootstrapModules.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     NoopAnimationsModule,
     BrowserAnimationsModule,
-    FateModule
+    FateModule,
+    //FlashMessagesModule
   ],
   exports: [BrowserModule],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [MDBSpinningPreloader, ItemService,PaginationService,AngularFireAuth],
+  //providers: [MDBSpinningPreloader, ItemService,PaginationService,AngularFireAuth,AuthService,AuthGuard, FlashMessagesService ],
+  providers: [MDBSpinningPreloader, ItemService, AngularFireAuth, AuthService, PaginationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

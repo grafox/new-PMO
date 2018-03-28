@@ -15,50 +15,71 @@
   </div>
 </div> -->
 
-<button type="button" class="btn btn-primary btn-lg btn-block waves-light" data-toggle="modal" data-target="#basicExample"
-  (click)="fluid.show()" mdbRippleRadius >
- <h5> اضافة مقال</h5>
-</button>
-
-<div mdbModal #fluid="mdb-modal" class="modal fade Top" id="fullHeightModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true" align="right">
-  <div class="modal-dialog modal-full-height modal-Top" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel">اضافة مقال</h4>
-        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="fluid.hide()">
-          <span aria-hidden="true">×</span>
-        </button> -->
-      </div>
-      <div class="modal-body">
-        <form (ngSubmit)="onSubmit()">
-          <div class="input-field">
-            <label>العنوان</label>
-            <input type="text" placeholder="عنوان المقال" [(ngModel)]="item.title" name="title">
-          </div>
-          <div class="input-field">
-            <label>نوع المقال</label>
-            <input type="text" placeholder="نوع المقال" [(ngModel)]="item.type" name="type">
-          </div>
-          <!-- <div><img src="{{item.image}}" width="300"></div> -->
-          <div><img src="https://firebasestorage.googleapis.com/v0/b/firebase-egav.appspot.com/o/logo%2Fthumnail_logo.jpg?alt=media&token=1c851838-d46b-4c73-9f70-e5a0374a226a" width="300"></div>
-          <label>المقال</label>
-          <!-- <textarea [(ngModel)]="item.content" name="content" placeholder="المقال"></textarea> -->
-          <!-- <fate-ui uiId="1"></fate-ui> -->
-          <fate-input uiId="1" name="content" [(ngModel)]="item.content"></fate-input>
-          <label>ملخص المقال</label>
-          <!-- <fate-ui uiId="2"></fate-ui> -->
-          <!-- <textarea [(ngModel)]="item.subContent" name="subContent" placeholder="ملخص المقال"></textarea> -->
-          <fate-input uiId="2"name="subContent" [(ngModel)]="item.subContent"></fate-input>
-          <!-- <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="false" [(ngModel)]="item.content"></app-ngx-editor> -->
-          <div>
-              <mdb-date-picker name="mydate" [placeholder]="'Selected date'" [(ngModel)]="item.creatAt" required></mdb-date-picker>
-          </div>
-          <div class="modal-footer justify-content-center">
-            <button type="button" class="btn btn-secondary waves-light" data-dismiss="modal" (click)="fluid.hide()" mdbRippleRadius>غــلــق</button>
-            <button type="submit" value="Submit" class="btn btn-primary waves-light" mdbRippleRadius>حفظ التغييرات</button>
-          </div>
-        </form>
-      </div>
-      </div>
+<div class="dropzone" dropZone (hovered)="toggleHover($event)" (dropped)="startUpload($event)" [class.hovering]="isHovering">
+  <div *ngIf="downloadURL | async as url">
+    <img [src]="url">
+    <br>
+    <!-- <p>{{url}}</p> -->
+    <!-- <a [href]="url" target="_blank" rel="noopener">Download Me!</a> -->
   </div>
+  <p>Drag and Drop a File</p>
+  <div class="file">
+    <label class="file-label">
+      <input class="file-input" type="file" (change)="startUpload($event.target.files)">
+      <span class="file-cta">
+        <span class="file-icon">
+          <i class="fa fa-upload"></i>
+        </span>
+        <span class="file-label">
+          or choose a file…
+        </span>
+      </span>
+    </label>
+  </div>
+</div>
+<div *ngIf="percentage | async as pct">
+
+  <progress class="progress is-info" [value]="pct" max="100">
+  </progress>
+  {{ pct | number }}%
+</div>
+
+<div *ngIf="(snapshot | async) as snap">
+  {{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }}
+  <hr>
+
+  <button (click)="task.pause()" class="button is-warning" [disabled]="!isActive(snap)">Pause</button>
+  <button (click)="task.cancel()" class="button is-danger" [disabled]="!isActive(snap)">Cancel</button>
+  <button (click)="task.resume()" class="button is-info" [disabled]="!(snap?.state === 'paused')">Resume</button>
+</div>
+<form (ngSubmit)="onSubmit()" style="padding-top:60px; margin:20px">
+<div>
+    <img src="{{item.image}}" width="300">
+  </div>
+  <div class="input-field">
+    <label>العنوان</label>
+    <input type="text" placeholder="عنوان المقال" [(ngModel)]="item.title" name="title">
+  </div>
+  <div class="input-field">
+    <label>نوع المقال</label>
+    <input type="text" placeholder="نوع المقال" [(ngModel)]="item.type" name="type">
+  </div>
+  <!-- <div><img src="{{item.image}}" width="300"></div> -->
+
+  <label>المقال</label>
+  <!-- <textarea [(ngModel)]="item.content" name="content" placeholder="المقال"></textarea> -->
+  <!-- <fate-ui uiId="1"></fate-ui> -->
+  <fate-input uiId="1" name="content" [(ngModel)]="item.content"></fate-input>
+  <label>ملخص المقال</label>
+  <!-- <fate-ui uiId="2"></fate-ui> -->
+  <!-- <textarea [(ngModel)]="item.subContent" name="subContent" placeholder="ملخص المقال"></textarea> -->
+  <fate-input uiId="2" name="subContent" [(ngModel)]="item.subContent"></fate-input>
+  <!-- <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="false" [(ngModel)]="item.content"></app-ngx-editor> -->
+  <div>
+    <mdb-date-picker name="mydate" [placeholder]="'Selected date'" [(ngModel)]="item.creatAt"></mdb-date-picker>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" class="btn btn-secondary waves-light" data-dismiss="modal" routerLink="/admin" mdbRippleRadius>غــلــق</button>
+    <button type="submit" value="Submit" class="btn btn-primary waves-light" mdbRippleRadius>حفظ التغييرات</button>
+  </div>
+</form>

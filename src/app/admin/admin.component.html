@@ -1,11 +1,33 @@
-<div *ngIf="afAuth.authState | async as user; else showLogin">
-    <h1>Hello {{ user.displayName }}!</h1>
-    <button (click)="logout()">Logout</button>
-    
+<div *ngIf="authService.afAuth.authState | async as user; else showLogin" style="padding-top:60px">
+    <h1>{{Hello}} {{ user.displayName }}!</h1>
+    <button type="button" class="btn btn-danger"(click)="onClickLogout()">{{Logout}}</button>
+
+    <button type="button" class="btn btn-primary btn-lg btn-block waves-light" data-toggle="modal" data-target="#basicExample"
+        routerLink="/addItem" mdbRippleRadius style="margin:20px">
+        <h5> اضافة مقال</h5>
+    </button>
+    <app-items></app-items>
 </div>
-<ng-template #showLogin>
-    <p>Please login.</p>
-    <button (click)="login()">Login with Google</button>
+
+<ng-template #showLogin >
+    <div class="row" style="padding-top:100px; margin:10px">
+        <div class="col-md-6 mx-auto mt-5">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="text-center">{{LOGIN}}</h2>
+              <form (submit)="onSubmitLogin()">
+                <div class="form-group">
+                  <label for="email">{{Email}}</label>
+                  <input type="email" name="email" id="email" [(ngModel)]="email" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="password">{{Password}}</label>
+                  <input type="password" name="password" id="password" [(ngModel)]="password" class="form-control">
+                </div>
+                <input type="submit" value="{{SUBMIT}}" class="btn btn-primary btn-block btn-lg">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 </ng-template>
-<app-add-item></app-add-item>
-<app-items></app-items> 
