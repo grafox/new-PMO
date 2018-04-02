@@ -14,6 +14,7 @@ import { SpeechesComponent } from './speeches/speeches.component';
 import { DietaryComponent } from './dietary/dietary.component';
 
 //import {AuthGuard} from './auth.guard';
+import { DeclarationComponent } from './declaration/declaration.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'statement', component: StatementComponent },
   { path: 'speeches', component: SpeechesComponent },
   { path: 'dietary', component: DietaryComponent },
+  {path: 'declaration', component: DeclarationComponent},
   { path: '**', component: HomeComponent }
 ];
 

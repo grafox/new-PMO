@@ -48,6 +48,7 @@ import { DietaryComponent } from './dietary/dietary.component';
 import { AuthService } from './auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { PaginationServiceType } from './pagination.service.type';
+import { DeclarationComponent } from './declaration/declaration.component';
 
 //import { AuthGuard } from './auth.guard';
 //import { FlashMessagesModule } from 'angular2-flash-messages';
@@ -73,7 +74,8 @@ import { PaginationServiceType } from './pagination.service.type';
     FileSizePipe,
     StatementComponent,
     SpeechesComponent,
-    DietaryComponent
+    DietaryComponent,
+    DeclarationComponent
   ],
   imports: [
     BrowserModule,
