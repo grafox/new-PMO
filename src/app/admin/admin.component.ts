@@ -56,5 +56,7 @@ export class AdminComponent implements OnInit {
 
   onClickLogout() {
     this.authService.logout();
+    this.username = '';
+    this.password='';
   }
 }

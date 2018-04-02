@@ -9,6 +9,9 @@ import { AddItemComponent } from './add-item/add-item.component';
 import { AdminComponent } from './admin/admin.component';
 import { ItemsComponent } from './items/items.component'
 import { GalleryComponent } from './gallery/gallery.component';
+import { StatementComponent } from './statement/statement.component';
+import { SpeechesComponent } from './speeches/speeches.component';
+import { DietaryComponent } from './dietary/dietary.component';
 
 //import {AuthGuard} from './auth.guard';
 
@@ -19,7 +22,11 @@ const routes: Routes = [
   { path: 'item', component: ItemsComponent },
   { path: 'search', component: SearchComponent },
   { path: 'admin', component: AdminComponent},
-  { path: 'gallery', component: GalleryComponent }
+  { path: 'gallery', component: GalleryComponent },
+  { path: 'statement', component: StatementComponent },
+  { path: 'speeches', component: SpeechesComponent },
+  { path: 'dietary', component: DietaryComponent },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({

@@ -19,16 +19,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.page.init('postesArabic', 'creatAt', { reverse: true, prepend: false })
-    // console.log(this.page);
+     console.log(this.page);
   }
   scrollHandler(e) {
     if (e === 'bottom') {
       this.page.more()
-      
     }
-    // if (e === 'top') {
-    //   this.page.more()
-    // }
+     if (e === 'top') {
+       this.page.more()
+    }
   }
-
 }

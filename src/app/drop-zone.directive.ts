@@ -28,6 +28,4 @@ export class DropZoneDirective {
     $event.preventDefault();
     this.hovered.emit(false);
   }
-
-
 }

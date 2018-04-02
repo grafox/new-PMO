@@ -41,9 +41,14 @@ import { AdminComponent } from './admin/admin.component';
 import { AddItemComponent } from './add-item/add-item.component';
 import { BannerComponent } from './banner/banner.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { StatementComponent } from './statement/statement.component';
+import { SpeechesComponent } from './speeches/speeches.component';
+import { DietaryComponent } from './dietary/dietary.component';
 
 import { AuthService } from './auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { PaginationServiceType } from './pagination.service.type';
+
 //import { AuthGuard } from './auth.guard';
 //import { FlashMessagesModule } from 'angular2-flash-messages';
 //import { FlashMessagesService } from 'angular2-flash-messages';
@@ -65,8 +70,10 @@ import { AngularFireAuth } from 'angularfire2/auth';
     ScrollableDirective,
     LoadingSpinnerComponent,
     DropZoneDirective,
-    FileSizePipe
-
+    FileSizePipe,
+    StatementComponent,
+    SpeechesComponent,
+    DietaryComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +91,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
   exports: [BrowserModule],
   schemas: [NO_ERRORS_SCHEMA],
   //providers: [MDBSpinningPreloader, ItemService,PaginationService,AngularFireAuth,AuthService,AuthGuard, FlashMessagesService ],
-  providers: [MDBSpinningPreloader, ItemService, AngularFireAuth, AuthService, PaginationService],
+  providers: [MDBSpinningPreloader, ItemService, AngularFireAuth, AuthService, PaginationService,PaginationServiceType],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

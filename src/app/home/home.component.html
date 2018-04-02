@@ -1,6 +1,6 @@
 <main scrollable (scrollPosition)="scrollHandler($event)" style="padding:0em">
     <app-banner></app-banner>
-    <loading-spinner  *ngIf="page.loading | async"></loading-spinner>
+    <loading-spinner  *ngIf="page.loading | async "></loading-spinner>
   <div class="container">
     <div class="row pt-5">
       <div class="col text-center">
@@ -12,7 +12,7 @@
           <!-- <p class="section-description">{{post.data.type}}</p> -->
           <!--Grid row-->
           <div class="row">
-            <h4 class="mb-4">
+            <h4 class="col-md-8">
               <strong>{{post.title}}</strong>
             </h4>
             <!--Grid column-->

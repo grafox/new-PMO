@@ -10,6 +10,6 @@ export interface Item {
   images?:string;
   type?:string;
   by?:string;
-  creatAt?:Data;
-  modifyAt?:Data;
+  creatAt?:Date;
+  modifyAt?:Date;
 }

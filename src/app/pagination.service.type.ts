@@ -7,24 +7,23 @@ import 'rxjs/add/operator/scan';
 import 'rxjs/add/operator/take';
 
 // Options to reproduce firestore queries consistently
-interface QueryConfig {
+interface QueryConfig2 {
   path: string, // path to collection
   field: string, // field to orderBy
-  
+  type?: string, //
   limit?: number, // limit per query
   reverse?: boolean, // reverse order?
   prepend?: boolean // prepend to source?
 }
 
 @Injectable()
-export class PaginationService {
+export class PaginationServiceType {
 
   // Source data
   private _done = new BehaviorSubject(false);
   private _loading = new BehaviorSubject(false);
   private _data = new BehaviorSubject([]);
-
-  private query: QueryConfig;
+  private query: QueryConfig2;
 
   // Observable data
   data: Observable<any>;
@@ -32,23 +31,24 @@ export class PaginationService {
   loading: Observable<boolean> = this._loading.asObservable();
 
   constructor(private afs: AngularFirestore) { }
-
-  // Initial query sets options and defines the Observable
-  init(path, field,type, opts?) {
+  
+  init(path, field, type, opts?) {
     this.query = {
       path,
       field,
+      type,
       limit: 4,
       reverse: false,
       prepend: false,
       ...opts
     }
+  // Initial query sets options and defines the Observable
 
     const first = this.afs.collection(this.query.path, ref => {
       return ref
-     // .orderBy(this.query.field, 'desc')
-      .orderBy(this.query.field, this.query.reverse ? 'desc' : 'asc')
-      .limit(this.query.limit)
+        .where("type", "==", type)
+        //       .orderBy(this.query.field, this.query.reverse ? 'desc' : 'asc')
+        .limit(this.query.limit)
     })
 
     this.mapAndUpdate(first)
@@ -62,12 +62,15 @@ export class PaginationService {
 
   // Retrieves additional data from firestore
   more() {
+
+
+
     const cursor = this.getCursor()
 
     const more = this.afs.collection(this.query.path, ref => {
       return ref
-       // .orderBy(this.query.field, 'desc')
-        .orderBy(this.query.field, this.query.reverse ? 'asc' : 'desc')
+ //       .where("type", "==", type)
+        //        .orderBy(this.query.field, this.query.reverse ? 'desc' : 'asc')
         .limit(this.query.limit)
         .startAfter(cursor)
     })
@@ -120,5 +123,7 @@ export class PaginationService {
   reset() {
     this._data.next([])
     this._done.next(false)
+
   }
+
 }

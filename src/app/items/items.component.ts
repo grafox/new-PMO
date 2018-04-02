@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DatePipe } from '@angular/common'
+import { DatePipe } from '@angular/common'
 import { ItemService } from '../services/item.service';
 import { Item } from '../models/Item';
 
@@ -22,22 +22,22 @@ export class ItemsComponent implements OnInit {
     });
   }
 
-  deleteItem(event, item: Item){
+  deleteItem(event, item: Item) {
     this.clearState();
     this.itemService.deleteItem(item);
   }
 
-  editItem(event, item: Item){
+  editItem(event, item: Item) {
     this.editState = true;
     this.itemToEdit = item;
   }
 
-  updateItem(item: Item){
+  updateItem(item: Item) {
     this.itemService.updateItem(item);
     this.clearState();
   }
 
-  clearState(){
+  clearState() {
     this.editState = false;
     this.itemToEdit = null;
   }
