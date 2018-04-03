@@ -1,3 +1,19 @@
-<p>
-  declaration works!
-</p>
+<div class="author-box" style="padding-top:90px">
+  <div style="text-align: right">
+    <div *ngFor="let item of page.data |async " class="list-group">
+      <li class="list-group-item list-group-item-action">
+        <!-- <strong>{{item.id}}</strong> -->
+        <p3>{{item.title}}</p3>
+        <!-- <strong>{{item.content}}</strong> -->
+        <strong>{{item.by}}</strong>
+        <strong> ---></strong>
+        <p3>{{item.creatAt | date:"short"}}</p3>
+          <i [routerLink]="['/details/'+item.id]" class="fa fa-newspaper-o fa-2x"></i>
+      </li>
+    </div>
+  </div>
+  </div>
+<!--   <ng-template #noItems>
+    <br>
+    <h2 class="d-flex justify-content-center">لا يوجد مقالات لحد الان ... جاري التحميل</h2 >
+  </ng-template> -->

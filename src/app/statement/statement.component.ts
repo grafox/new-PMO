@@ -11,11 +11,11 @@ import { Observable } from 'rxjs/Observable';
 })
 export class StatementComponent implements OnInit {
 
-  constructor(public page: PaginationServiceType) { }
+  constructor(public page: PaginationServiceType){}
 
   ngOnInit() {
     this.page.reset();
-    this.page.init('postesArabic', 'creatAt','بيان', { reverse: true, prepend: false })
+    this.page.init('postesArabic', 'creatAt','قرار', { reverse: true, prepend: false })
     // console.log(this.page);
   }
 
