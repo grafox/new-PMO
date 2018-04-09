@@ -19,7 +19,7 @@
             <div class="col-lg-5 col-xl-4 offset-xl-1 pb-3">
               <!--Featured image-->
               <div class="view overlay hm-white-slight waves-light" mdbRippleRadius>
-                <img class="animated fadeIn img-thumbnail" src="{{post.thumbnail}}">
+                <img class="animated fadeIn img-thumbnail" [src]="post.thumbnail || 'https://firebasestorage.googleapis.com/v0/b/firebase-egav.appspot.com/o/logo%2Fthumnail_logo.jpg?alt=media&token=1c851838-d46b-4c73-9f70-e5a0374a226a'">
                 <a [routerLink]="['/details/'+post.id]">
                   <div class="mask"></div>
                 </a>

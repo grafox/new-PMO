@@ -1,3 +1,17 @@
-<p style="padding-top:80px">
-  search works!
-</p>
+<h2 style="padding-top:80px">Start Typing...</h2>
+<!-- <input (keyup)="onkeyup($event)" class="input" placeholder="search movies..."> -->
+
+<mdb-completer [label]="'Select post'" initialValue="Select color" name="autocomplete" [(ngModel)]="searchStr" [datasource]="dataService" [minSearchLength]="0">
+</mdb-completer>
+        
+<div *ngFor=" let post of post |async" class="list-group card">
+  <li class="list-group-item list-group-item-action">
+    <!-- <strong>{{item.id}}</strong> -->
+    <p3>{{post.title}}</p3>
+    <!-- <strong>{{item.content}}</strong> -->
+    <strong>{{post.by}}</strong>
+    <strong> ---></strong>
+    <p3>{{post.creatAt | date:"short"}}</p3>
+      <i [routerLink]="['/details/'+post.id]" class="fa fa-newspaper-o fa-2x"></i>
+  </li>
+</div>

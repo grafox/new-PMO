@@ -31,6 +31,7 @@
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "ng-mdb-pro": "git+https://oauth2:2EErFM5ktAaXmMGa82zr@git.mdbootstrap.com/mdb/angular/ng-pro.git",
+    "ng2-trim-directive": "^2.1.0",
     "ngx-bootstrap": "^2.0.2",
     "ngx-editor": "^3.3.0-rc.13",
     "ngx-quill": "^2.2.0",

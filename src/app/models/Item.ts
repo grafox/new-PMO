@@ -7,9 +7,9 @@ export interface Item {
   content?:string;
   thumbnail?:string;
   image?:string;
-  images?:string;
+ // images?:string;
   type?:string;
   by?:string;
   creatAt?:Date;
-  modifyAt?:Date;
+ // modifyAt?:Date;
 }

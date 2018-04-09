@@ -7,7 +7,7 @@
       <!--Featured image-->
       <div class="card card-cascade wider reverse">
         <div class="view overlay hm-white-slight">
-          <img src="{{(post | async)?.image}}" class="mx-auto d-block img-fluid">
+          <img [src]="(post | async)?.image || 'https://firebasestorage.googleapis.com/v0/b/firebase-egav.appspot.com/o/logo%2Flogo.jpg?alt=media&token=b8b1dcad-ddad-4a2e-bc4f-9fa8bcf390ca'" class="mx-auto d-block img-fluid">
         </div>
         <!--Post data-->
         <div class="card-body text-center">

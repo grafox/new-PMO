@@ -69,23 +69,23 @@
 
 <form (ngSubmit)="onSubmit()" style="padding-top:60px; margin:20px">
   <label>image</label>
-  <input type="text" [(ngModel)]="item.image" name="image" hidden>
-  <input type="text" [(ngModel)]="item.thumbnail" name="image" hidden>
+  <input type="text" [(ngModel)]="item.image" name="image" hidden trim>
+  <input type="text" [(ngModel)]="item.thumbnail" name="image" hidden trim>
   <div>
     <img src="{{item.image}}" width="300">
   </div>
   <label>thumbnail</label>
-  <input type="text" [(ngModel)]="item.thumbnail" name="image" hidden>
+  <input type="text" [(ngModel)]="item.thumbnail" name="image" hidden trim>
   <div>
     <img src="{{item.thumbnail}}" width="200">
   </div>
   <div class="input-field">
     <label>العنوان</label>
-    <input type="text" placeholder="عنوان المقال" [(ngModel)]="item.title" name="title">
+    <input type="text" placeholder="عنوان المقال" [(ngModel)]="item.title" name="title" trim>
   </div>
   <div class="input-field">
     <label>نوع المقال</label>
-    <input type="text" placeholder="نوع المقال" [(ngModel)]="item.type" name="type">
+    <input type="text" placeholder="نوع المقال" [(ngModel)]="item.type" name="type" trim>
   </div>
   <!-- <div><img src="{{item.image}}" width="300"></div> -->
 

@@ -18,15 +18,17 @@ export class HomeComponent implements OnInit {
   constructor(public page: PaginationService) {}
 
   ngOnInit() {
-    this.page.init('postesArabic', 'creatAt', { reverse: true, prepend: false })
-     //console.log(this.page);
+   this.page.init('postesArabic', 'creatAt', 4, { reverse: false, prepend: false })
+   const recentItem = [];
+  // this.page.data.forEach(item => console.log(item))
   }
+
   scrollHandler(e) {
     if (e === 'bottom') {
       this.page.more()
     }
-     if (e === 'top') {
-      this.page.more()
-    }
+   //  if (e === 'top') {
+   //   this.page.more()
+   // }
   }
 }

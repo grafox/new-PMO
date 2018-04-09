@@ -49,6 +49,8 @@ import { AuthService } from './auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { PaginationServiceType } from './pagination.service.type';
 import { DeclarationComponent } from './declaration/declaration.component';
+import { PaginationServiceTitle } from './pagination.service.title';
+import { InputTrimModule } from 'ng2-trim-directive';
 
 //import { AuthGuard } from './auth.guard';
 //import { FlashMessagesModule } from 'angular2-flash-messages';
@@ -88,12 +90,13 @@ import { DeclarationComponent } from './declaration/declaration.component';
     NoopAnimationsModule,
     BrowserAnimationsModule,
     FateModule,
+    InputTrimModule,
     //FlashMessagesModule
   ],
   exports: [BrowserModule],
   schemas: [NO_ERRORS_SCHEMA],
   //providers: [MDBSpinningPreloader, ItemService,PaginationService,AngularFireAuth,AuthService,AuthGuard, FlashMessagesService ],
-  providers: [MDBSpinningPreloader, ItemService, AngularFireAuth, AuthService, PaginationService,PaginationServiceType],
+  providers: [MDBSpinningPreloader, ItemService, AngularFireAuth, AuthService, PaginationService,PaginationServiceType,PaginationServiceTitle],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
