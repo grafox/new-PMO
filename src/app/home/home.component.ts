@@ -18,8 +18,9 @@ export class HomeComponent implements OnInit {
   constructor(public page: PaginationService) {}
 
   ngOnInit() {
+    this.page.reset();
    this.page.init('postesArabic', 'creatAt', 4, { reverse: false, prepend: false })
-   const recentItem = [];
+   //const recentItem = [];
   // this.page.data.forEach(item => console.log(item))
   }
 
@@ -27,8 +28,8 @@ export class HomeComponent implements OnInit {
     if (e === 'bottom') {
       this.page.more()
     }
-   //  if (e === 'top') {
-   //   this.page.more()
-   // }
+     if (e === 'top') {
+      this.page.more()
+    }
   }
 }

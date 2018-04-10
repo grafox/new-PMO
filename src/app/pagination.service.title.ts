@@ -6,11 +6,12 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/scan';
 import 'rxjs/add/operator/take';
 
+
 // Options to reproduce firestore queries consistently
 interface QueryConfig3 {
   path: string, // path to collection
   field: string, // field to orderBy
- // title?: string, //
+  title?: string, //
   limit?: number, // limit per query
   reverse?: boolean, // reverse order?
   prepend?: boolean // prepend to source?
@@ -31,22 +32,22 @@ export class PaginationServiceTitle {
   loading: Observable<boolean> = this._loading.asObservable();
 
   constructor(private afs: AngularFirestore) { }
-  
-  init(path, field, opts?) {
+
+  init(path, field, title, limit, opts?) {
     this.query = {
       path,
       field,
-     // title,
+      title,
       limit: 4,
       reverse: false,
       prepend: false,
       ...opts
     }
-  // Initial query sets options and defines the Observable
+    // Initial query sets options and defines the Observable
 
     const first = this.afs.collection(this.query.path, ref => {
       return ref
-      //  .where("title", "==", title)
+        //.where("title", "==", title)
         //       .orderBy(this.query.field, this.query.reverse ? 'desc' : 'asc')
         .limit(this.query.limit)
     })
@@ -62,14 +63,11 @@ export class PaginationServiceTitle {
 
   // Retrieves additional data from firestore
   more() {
-
-
-
     const cursor = this.getCursor()
 
     const more = this.afs.collection(this.query.path, ref => {
       return ref
- //       .where("type", "==", type)
+        // .where("title", "==", title)
         //        .orderBy(this.query.field, this.query.reverse ? 'desc' : 'asc')
         .limit(this.query.limit)
         .startAfter(cursor)

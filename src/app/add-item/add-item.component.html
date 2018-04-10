@@ -92,13 +92,15 @@
   <label>المقال</label>
   <!-- <textarea [(ngModel)]="item.content" name="content" placeholder="المقال"></textarea> -->
   <!-- <fate-ui uiId="1"></fate-ui> -->
-  <fate-input uiId="1" name="content" [(ngModel)]="item.content"></fate-input>
+  <fate-bootstrap  name="content" [(ngModel)]="item.content" placeholder=""></fate-bootstrap>
+  <!-- <fate-input uiId="foo1" uiId="1" ></fate-input> -->
   <label>ملخص المقال</label>
   <!-- <fate-ui uiId="2"></fate-ui> -->
   <!-- <textarea [(ngModel)]="item.subContent" name="subContent" placeholder="ملخص المقال"></textarea> -->
-  <fate-input uiId="2" name="subContent" [(ngModel)]="item.subContent"></fate-input>
+  <fate-bootstrap name="subContent" [(ngModel)]="item.subContent" placeholder=""></fate-bootstrap>
+  <!-- <fate-input uiId="foo1" uiId="2"></fate-input> -->
   <!-- <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="false" [(ngModel)]="item.content"></app-ngx-editor> -->
-  <div>
+  <div style="padding-top:40px">
     <mdb-date-picker name="mydate" [placeholder]="'Selected date'" [(ngModel)]="item.creatAt"></mdb-date-picker>
   </div>
   <div class="modal-footer justify-content-center">

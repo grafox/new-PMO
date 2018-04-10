@@ -1,14 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common'
 import { ItemService } from '../services/item.service';
-
+import { PaginationServiceTitle } from '../pagination.service.title';
 import { CompleterData } from 'ng-mdb-pro/pro/autocomplete';
 import { CompleterService } from 'ng-mdb-pro/pro/autocomplete';
 
 export interface Item {
-
+  id?:string;
   title?:string;
-
+  subContent?: string;
+  content?:string;
+  thumbnail?:string;
+  image?:string;
+ // images?:string;
+  type?:string;
+  by?:string;
+  creatAt?:Date;
 }
 
 @Component({
@@ -18,31 +25,35 @@ export interface Item {
 })
 
 export class SearchComponent implements OnInit {
-    items: Item[];
-    titles:string;
+  items: Item[];
 
-    protected searchStr: string;
-    protected dataService: CompleterData;
-    protected searchData = [];
+  titles: string;
 
-    constructor(private itemService: ItemService,private completerService: CompleterService) {
-      this.dataService = completerService.local(this.searchData,'title', 'title');
-    }
+  searchStr: string;
+  dataService: CompleterData;
+  searchData = [];
 
-    ngOnInit() {
-      this.itemService.getItems().subscribe(items => {
-        console.log(items);
-        this.items = items;
-        this.items.forEach(res =>  this.searchData.push({"title":res.title}));
-        console.log(this.searchData);
-      });
-    }
-
-
-
-
-
-
-
-
+  constructor(private itemService: ItemService, private completerService: CompleterService,public page: PaginationServiceTitle) {
+    this.dataService = completerService.local(this.searchData, 'title', 'title');
   }
+
+  ngOnInit() {
+    this.itemService.getItems().subscribe(items => {
+      console.log(items);
+      this.items = items;
+      this.items.forEach(res => this.searchData.push({ "title": res.title }));
+      console.log(this.searchData);
+       if (!this.searchStr){
+        this.page.init('postesArabic', 'title', this.searchStr, 4, { reverse: false, prepend: false })
+      } 
+    });
+  }
+
+
+
+
+
+
+
+
+}

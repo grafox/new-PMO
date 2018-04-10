@@ -20,8 +20,8 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { FateModule } from 'fate-editor';
-//import { FateIconService } from './fate-icon.service';
+import { FateModule, FateIconService } from 'fate-editor';
+//import { FateIconService, MdbootstrapIconService } from './fate-icon.service';
 import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
 
 import { ScrollableDirective } from './scrollable.directive';
@@ -51,6 +51,7 @@ import { PaginationServiceType } from './pagination.service.type';
 import { DeclarationComponent } from './declaration/declaration.component';
 import { PaginationServiceTitle } from './pagination.service.title';
 import { InputTrimModule } from 'ng2-trim-directive';
+import { MdbootstrapIconService } from './fate-icon.service';
 
 //import { AuthGuard } from './auth.guard';
 //import { FlashMessagesModule } from 'angular2-flash-messages';
@@ -96,7 +97,14 @@ import { InputTrimModule } from 'ng2-trim-directive';
   exports: [BrowserModule],
   schemas: [NO_ERRORS_SCHEMA],
   //providers: [MDBSpinningPreloader, ItemService,PaginationService,AngularFireAuth,AuthService,AuthGuard, FlashMessagesService ],
-  providers: [MDBSpinningPreloader, ItemService, AngularFireAuth, AuthService, PaginationService,PaginationServiceType,PaginationServiceTitle],
+  providers: [MDBSpinningPreloader, 
+              ItemService, 
+              AngularFireAuth, 
+              AuthService, 
+              PaginationService,
+              PaginationServiceType,
+              PaginationServiceTitle,
+              { provide: FateIconService, useClass: MdbootstrapIconService }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

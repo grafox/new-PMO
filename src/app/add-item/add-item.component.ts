@@ -54,9 +54,7 @@ export class AddItemComponent implements OnInit {
       this.item.thumbnail='';
       this.router.navigate(['/admin']);
     }
-    
   }
-
   
   toggleHover(event: boolean) {
     this.isHovering = event;

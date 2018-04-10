@@ -1,11 +1,11 @@
 <h2 style="padding-top:80px">Start Typing...</h2>
 <!-- <input (keyup)="onkeyup($event)" class="input" placeholder="search movies..."> -->
 
-<mdb-completer [label]="'Select post'" initialValue="Select color" name="autocomplete" [(ngModel)]="searchStr" [datasource]="dataService" [minSearchLength]="0">
+<mdb-completer [label]="'Select post'" initialValue="Select post" name="autocomplete" [(ngModel)]="searchStr" [datasource]="dataService" [minSearchLength]="0">
 </mdb-completer>
         
-<div *ngFor=" let post of post |async" class="list-group card">
-  <li class="list-group-item list-group-item-action">
+<div *ngFor=" let post of items" class="list-group card">
+  <li class="list-group-item list-group-item-action" dir="rtl">
     <!-- <strong>{{item.id}}</strong> -->
     <p3>{{post.title}}</p3>
     <!-- <strong>{{item.content}}</strong> -->
