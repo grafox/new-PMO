@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
-import { PaginationServiceType } from '../pagination.service.type';
+import { PaginationServiceType } from '../services/pagination.service.type';
 import { Observable } from 'rxjs/Observable';
 
 @Component({

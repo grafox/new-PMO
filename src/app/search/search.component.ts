@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common'
 import { ItemService } from '../services/item.service';
-import { PaginationServiceTitle } from '../pagination.service.title';
+import { PaginationServiceTitle } from '../services/pagination.service.title';
 import { CompleterData } from 'ng-mdb-pro/pro/autocomplete';
 import { CompleterService } from 'ng-mdb-pro/pro/autocomplete';
 
@@ -39,7 +39,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this.itemService.getItems().subscribe(items => {
-      console.log(items);
+     // console.log(items);
       this.items = items;
       this.items.forEach(res => this.searchData.push({ "title": res.title }));
       console.log(this.searchData);

@@ -6,7 +6,6 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/scan';
 import 'rxjs/add/operator/take';
 
-
 // Options to reproduce firestore queries consistently
 interface QueryConfig3 {
   path: string, // path to collection

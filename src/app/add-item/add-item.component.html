@@ -26,7 +26,6 @@
        <!-- <a [href]="url" target="_blank" rel="noopener">Download Me!</a> -->
   </div>
   <p>Drag and Drop a File</p>
-
       <div class="file-field">
         <div class="btn btn-primary waves-light" mdbRippleRadius>
           <span>Choose file</span>
@@ -36,7 +35,6 @@
           <input class="file-path" type="text" placeholder="Upload your file" >
         </div> -->
       </div>
-
 
 <!--   <div class="file">
     <label class="file-label">
@@ -68,40 +66,40 @@
 </div>
 
 <form (ngSubmit)="onSubmit()" style="padding-top:60px; margin:20px">
-  <label>image</label>
+  <label>{{theImage}}</label>
   <input type="text" [(ngModel)]="item.image" name="image" hidden trim>
   <input type="text" [(ngModel)]="item.thumbnail" name="image" hidden trim>
   <div>
     <img src="{{item.image}}" width="300">
   </div>
-  <label>thumbnail</label>
+  <label>{{theThumbnail}}</label>
   <input type="text" [(ngModel)]="item.thumbnail" name="image" hidden trim>
   <div>
     <img src="{{item.thumbnail}}" width="200">
   </div>
   <div class="input-field">
-    <label>العنوان</label>
-    <input type="text" placeholder="عنوان المقال" [(ngModel)]="item.title" name="title" trim>
+    <label>{{theTitle}}</label>
+    <input type="text" placeholder="" [(ngModel)]="item.title" name="title" trim>
   </div>
   <div class="input-field">
-    <label>نوع المقال</label>
-    <input type="text" placeholder="نوع المقال" [(ngModel)]="item.type" name="type" trim>
+    <label>{{theType}}</label>
+    <input type="text" placeholder="" [(ngModel)]="item.type" name="type" trim>
   </div>
   <!-- <div><img src="{{item.image}}" width="300"></div> -->
 
-  <label>المقال</label>
+  <label>{{theContent}}</label>
   <!-- <textarea [(ngModel)]="item.content" name="content" placeholder="المقال"></textarea> -->
   <!-- <fate-ui uiId="1"></fate-ui> -->
   <fate-bootstrap  name="content" [(ngModel)]="item.content" placeholder=""></fate-bootstrap>
   <!-- <fate-input uiId="foo1" uiId="1" ></fate-input> -->
-  <label>ملخص المقال</label>
+  <label>{{thesubContent}}</label>
   <!-- <fate-ui uiId="2"></fate-ui> -->
   <!-- <textarea [(ngModel)]="item.subContent" name="subContent" placeholder="ملخص المقال"></textarea> -->
   <fate-bootstrap name="subContent" [(ngModel)]="item.subContent" placeholder=""></fate-bootstrap>
   <!-- <fate-input uiId="foo1" uiId="2"></fate-input> -->
   <!-- <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="false" [(ngModel)]="item.content"></app-ngx-editor> -->
   <div style="padding-top:40px">
-    <mdb-date-picker name="mydate" [placeholder]="'Selected date'" [(ngModel)]="item.creatAt"></mdb-date-picker>
+    <mdb-date-picker name="mydate" [placeholder]="'اختر التاريخ'" [(ngModel)]="item.creatAt"></mdb-date-picker>
   </div>
   <div class="modal-footer justify-content-center">
     <!-- <button type="button" class="btn btn-secondary waves-light" data-dismiss="modal" routerLink="/admin" mdbRippleRadius>غــلــق</button> -->

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
-import {AuthService } from '../auth.service';
-//import {FlashMessagesService} from 'angular2-flash-messages';
+import {AuthService } from '../services/auth.service';
+
+import { ToastService } from 'ng-mdb-pro/pro/alerts/toast/toast.service';
+import { Positioning } from 'ng-mdb-pro/free/utils/positioning';
 
 @Component({
   selector: 'app-admin',
@@ -14,7 +16,7 @@ export class AdminComponent implements OnInit {
   Password="كلمة المرور";
   SUBMIT="تسجيل";
   Logout="تسجيل الخروج";
-  Hello="مرحبا";
+  Hello="مرحبا ... يمكنك اضافة أو تعديل مقال أو تسجيل الخروج عند الانتهاء";
   public isLogin: boolean;
   public username: string;
   public emailUser: string;
@@ -24,9 +26,8 @@ export class AdminComponent implements OnInit {
   constructor(
     public authService: AuthService,
     public router: Router,
-    //public FlashMessages: FlashMessagesService
-  ) {
-   }
+    private toastrService: ToastService
+  ) {}
 
   ngOnInit() {
     this.authService.getAuth().subscribe( auth => {
@@ -44,12 +45,12 @@ export class AdminComponent implements OnInit {
   onSubmitLogin() {
     this.authService.loginEmail(this.email, this.password)
     .then( (res) => {
-/*       this.FlashMessages.show('User logged in correctly.',
-      {cssClass: 'alert-success', timeout: 4000}); */
+      let options = { enableHtml: false,  positionClass: 'toast-bottom-center' };
+      this.toastrService.success('', 'تم الدخول بنجاح',options);
       this.router.navigate(['/admin']);
     }).catch((err) => {
-/*       this.FlashMessages.show(err.message,
-      {cssClass: 'alert-danger', timeout: 4000}); */
+      let options = { enableHtml: false,  positionClass: 'toast-bottom-center' };
+      this.toastrService.error('', 'هناك خطأ',options)
       this.router.navigate(['/admin']);
     });
   }

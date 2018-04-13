@@ -1,4 +1,4 @@
-import { Component, OnInit , Input, Output } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Router} from '@angular/router'
 import { ItemService } from '../services/item.service';
 import { Item } from '../models/Item'; 
@@ -14,17 +14,24 @@ import { tap } from 'rxjs/operators';
   templateUrl: './add-item.component.html',
   styleUrls: ['./add-item.component.scss']
 })
-export class AddItemComponent implements OnInit {
+export class AddItemComponent {
   public router: Router;
+  theImage = "صورة المقال";
+  theThumbnail="صورة مصغرة";
+  theTitle="العنوان";
+  theType="نوع المقال";
+  thePost="المقال";
+  theContent="المقال";
+  thesubContent="ملخص المقال";
 
   item: Item = {
-    title: '',
+    title:'',
     content:'',
     subContent:'',
     creatAt: new Date(),
     type:'',
-    image:'https://firebasestorage.googleapis.com/v0/b/firebase-egav.appspot.com/o/logo%2Flogo.jpg?alt=media&token=44f660ec-d7f3-496f-9966-1f8f54ddc6ff',
-    thumbnail:'https://firebasestorage.googleapis.com/v0/b/firebase-egav.appspot.com/o/logo%2Fthumnail_logo.jpg?alt=media&token=1c851838-d46b-4c73-9f70-e5a0374a226a'
+    image:'',
+    thumbnail:''
   }
     // Main task 
     task: AngularFireUploadTask;
@@ -36,11 +43,7 @@ export class AddItemComponent implements OnInit {
     // State for dropzone CSS toggling
     isHovering: boolean;
   
-  constructor(private itemService: ItemService,private storage: AngularFireStorage,private db: AngularFirestore) { }
-
-  ngOnInit() {
-    
-  }
+  constructor(private itemService: ItemService,private storage: AngularFireStorage,private db: AngularFirestore) {}
 
   onSubmit(){
     if(this.item.title != '' && this.item.content != ''){

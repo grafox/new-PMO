@@ -26,7 +26,7 @@ import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
 
 import { ScrollableDirective } from './scrollable.directive';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
-import { PaginationService } from './pagination.service';
+import { PaginationService } from './services/pagination.service';
 
 import { DropZoneDirective } from './drop-zone.directive';
 import { FileSizePipe } from './file-size.pipe';
@@ -45,13 +45,14 @@ import { StatementComponent } from './statement/statement.component';
 import { SpeechesComponent } from './speeches/speeches.component';
 import { DietaryComponent } from './dietary/dietary.component';
 
-import { AuthService } from './auth.service';
+import { AuthService } from './services/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { PaginationServiceType } from './pagination.service.type';
+import { PaginationServiceType } from './services/pagination.service.type';
 import { DeclarationComponent } from './declaration/declaration.component';
-import { PaginationServiceTitle } from './pagination.service.title';
+import { PaginationServiceTitle } from './services/pagination.service.title';
 import { InputTrimModule } from 'ng2-trim-directive';
 import { MdbootstrapIconService } from './fate-icon.service';
+import { ToastModule } from 'ng-mdb-pro/pro/alerts/toast/toast.module';
 
 //import { AuthGuard } from './auth.guard';
 //import { FlashMessagesModule } from 'angular2-flash-messages';
@@ -92,7 +93,7 @@ import { MdbootstrapIconService } from './fate-icon.service';
     BrowserAnimationsModule,
     FateModule,
     InputTrimModule,
-    //FlashMessagesModule
+    ToastModule.forRoot()
   ],
   exports: [BrowserModule],
   schemas: [NO_ERRORS_SCHEMA],
