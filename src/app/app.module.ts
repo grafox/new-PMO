@@ -24,12 +24,12 @@ import { FateModule, FateIconService } from 'fate-editor';
 //import { FateIconService, MdbootstrapIconService } from './fate-icon.service';
 import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
 
-import { ScrollableDirective } from './scrollable.directive';
+import { ScrollableDirective } from './directive/scrollable.directive';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { PaginationService } from './services/pagination.service';
 
-import { DropZoneDirective } from './drop-zone.directive';
-import { FileSizePipe } from './file-size.pipe';
+import { DropZoneDirective } from './directive/drop-zone.directive';
+import { FileSizePipe } from './pipes/file-size.pipe';
 
 import { DetailsComponent } from './details/details.component';
 import { HomeComponent } from './home/home.component';
@@ -51,12 +51,10 @@ import { PaginationServiceType } from './services/pagination.service.type';
 import { DeclarationComponent } from './declaration/declaration.component';
 import { PaginationServiceTitle } from './services/pagination.service.title';
 import { InputTrimModule } from 'ng2-trim-directive';
-import { MdbootstrapIconService } from './fate-icon.service';
+import { MdbootstrapIconService } from './services/fate-icon.service';
 import { ToastModule } from 'ng-mdb-pro/pro/alerts/toast/toast.module';
 
 //import { AuthGuard } from './auth.guard';
-//import { FlashMessagesModule } from 'angular2-flash-messages';
-//import { FlashMessagesService } from 'angular2-flash-messages';
 
 @NgModule({
   declarations: [
@@ -108,4 +106,4 @@ import { ToastModule } from 'ng-mdb-pro/pro/alerts/toast/toast.module';
               { provide: FateIconService, useClass: MdbootstrapIconService }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
