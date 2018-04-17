@@ -42,7 +42,7 @@ export class SearchComponent implements OnInit {
      // console.log(items);
       this.items = items;
       this.items.forEach(res => this.searchData.push({ "title": res.title }));
-      console.log(this.searchData);
+      //console.log(this.searchData);
        if (!this.searchStr){
         this.page.init('postesArabic', 'title', this.searchStr, 4, { reverse: false, prepend: false })
       } 

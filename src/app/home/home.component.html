@@ -29,7 +29,7 @@
             <!--Grid column-->
             <div class="col-lg-7 col-xl-6">
               <!--Excerpt-->
-              <a href="" class="green-text">
+              <a href="" class="blue-text">
                 <h6 class="font-bold pb-1">
                   <i class="fa fa-newspaper-o"></i>  {{post.type}}</h6>
               </a>
@@ -39,7 +39,7 @@
               <p>
                 <strong>{{post.by}} {{in}}  </strong>
                 {{post.creatAt | date:"short"}}</p>
-               <a [routerLink]="['/details/'+post.id]" class="btn btn-success mb-3 waves-light" mdbRippleRadius >{{readMore}}</a>
+               <a [routerLink]="['/details/'+post.id]" class="btn btn-info  waves-light" mdbRippleRadius >{{readMore}}</a>
             </div>
             <!--Grid column-->
           </div>

@@ -54,6 +54,8 @@ import { InputTrimModule } from 'ng2-trim-directive';
 import { MdbootstrapIconService } from './services/fate-icon.service';
 import { ToastModule } from 'ng-mdb-pro/pro/alerts/toast/toast.module';
 
+import { NgNetworkStatusModule } from 'ng-network-status';
+
 //import { AuthGuard } from './auth.guard';
 
 @NgModule({
@@ -81,6 +83,7 @@ import { ToastModule } from 'ng-mdb-pro/pro/alerts/toast/toast.module';
   ],
   imports: [
     BrowserModule,
+    NgNetworkStatusModule.forRoot(),
     AppRoutingModule,
     FormsModule,
     MDBBootstrapModules.forRoot(),
@@ -92,6 +95,7 @@ import { ToastModule } from 'ng-mdb-pro/pro/alerts/toast/toast.module';
     FateModule,
     InputTrimModule,
     ToastModule.forRoot()
+
   ],
   exports: [BrowserModule],
   schemas: [NO_ERRORS_SCHEMA],

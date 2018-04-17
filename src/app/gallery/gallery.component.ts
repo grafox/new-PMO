@@ -20,7 +20,7 @@ images=[];
    // Item.forEach(res => console.log(res))
    Item.subscribe(items => {
     this.items = items;
-      console.log(items);
+     // console.log(items);
       this.items.forEach(res => 
         this.images.push(
           { "img": res.image , "thumb": res.thumbnail }
@@ -28,7 +28,7 @@ images=[];
         )
       );
     //  this.items = items;
-    console.log(this.images);
+    //console.log(this.images);
       
     });
 

@@ -8,6 +8,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
 import { Observable } from 'rxjs/Observable';
 import { tap } from 'rxjs/operators';
+import { ToastService } from 'ng-mdb-pro/pro/alerts/toast/toast.service';
 
 @Component({
   selector: 'app-add-item',
@@ -43,7 +44,10 @@ export class AddItemComponent {
     // State for dropzone CSS toggling
     isHovering: boolean;
   
-  constructor(private itemService: ItemService,private storage: AngularFireStorage,private db: AngularFirestore) {}
+  constructor(private itemService: ItemService,
+              private storage: AngularFireStorage,
+              private db: AngularFirestore,
+              private toastrService: ToastService) {}
 
   onSubmit(){
     if(this.item.title != '' && this.item.content != ''){
@@ -69,7 +73,9 @@ export class AddItemComponent {
 
     // Client-side validation example
     if (file.type.split('/')[0] !== 'image') { 
-      console.error('unsupported file type :( ')
+      let options = { enableHtml: false,  positionClass: 'toast-bottom-center' };
+      this.toastrService.error('', 'هناك خطأ',options)
+      //console.error('unsupported file type :( ')
       return;
     }
 
